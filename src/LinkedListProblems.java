@@ -1,6 +1,4 @@
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Scanner;
+import java.util.*;
 
 public class LinkedListProblems {
     Scanner sc = new Scanner(System.in);
@@ -343,7 +341,7 @@ public class LinkedListProblems {
 
     public void problem20() {
         //Finding the merging point of two LL using hash table
-        System.out.println("problem 18: Finding the merging point of two singly Linked Lists using hash table");
+        System.out.println("problem 20: Finding the merging point of two singly Linked Lists using hash table");
         populateLL(" numbers ");
         LinkedList<Integer> ll2 = new LinkedList<>();
         System.out.println("enter no of nodes for second LL ");
@@ -375,6 +373,59 @@ public class LinkedListProblems {
         if (!merge) System.out.println("No merge point");
 
     }
+
+    public void problem21() {
+        //Finding the merging point of two LL using stack
+        System.out.println("problem 21: Finding the merging point of two singly Linked Lists using stack");
+        populateLL(" numbers ");
+        LinkedList<Integer> ll2 = new LinkedList<>();
+        System.out.println("enter no of nodes for second LL ");
+        int k = sc.nextInt();
+        System.out.println("enter " + k + "numbers");
+        for (int i = 0; i < k; i++) {
+            ll2.insertAtEnd(sc.nextInt());
+        }
+        System.out.println("creating merge...");
+        //comment out below line to remove merge and run again
+        ll2.head.next.next = ll.head.next.next.next;
+        LinkedList<Integer>.Node temp = ll.head;
+        boolean merge = true;
+        Stack<LinkedList<Integer>.Node> stack = new Stack<>();
+        while (temp != null) {
+            stack.push(temp);
+            temp = temp.next;
+        }
+        LinkedList<Integer>.Node temp2 = ll2.head;
+        Stack<LinkedList<Integer>.Node> stack2 = new Stack<>();
+        while (temp2 != null) {
+            stack2.push(temp);
+            temp2 = temp2.next;
+        }
+        LinkedList<Integer>.Node temp3 = ll2.head;
+        while (stack.peek() == stack2.peek()) {
+            merge = true;
+            temp3 = stack.pop();
+            stack2.pop();
+        }
+
+        if (!merge) System.out.println("No merge point");
+        else System.out.println(temp3.item);
+
+    }
+
+    public void problem30() {
+        //check if linked list length is even or odd
+        System.out.println("problem 30: check if linked list length is even or odd");
+        populateLL(" numbers ");
+        LinkedList<Integer>.Node temp = ll.head;
+        while (temp!=null && temp.next!=null) temp = temp.next.next;
+        if(temp==null) System.out.println("even length");
+        else System.out.println("odd length");
+
+    }
+
+
+
 
 
     //helper methods for LinkedList problems
