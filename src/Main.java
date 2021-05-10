@@ -6,6 +6,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("hello World, This is a DSA Project");
         LinkedListProblems llp = new LinkedListProblems();
-        llp.problem10();
+        llp.problem20();
     }
 }
+
