@@ -4,7 +4,7 @@ public class StackUsingLinkedList<Item> implements Iterable<Item> {
     private Node head;
     private int N;
 
-    private class Node {
+    public class Node {
         Item item;
         Node next;
     }

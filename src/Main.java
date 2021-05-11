@@ -1,4 +1,3 @@
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
@@ -6,7 +5,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("hello World, This is a DSA Project");
         LinkedListProblems llp = new LinkedListProblems();
-        llp.problem30();
+        llp.problem39();
     }
 }
 

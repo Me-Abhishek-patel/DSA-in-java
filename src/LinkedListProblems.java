@@ -1,3 +1,5 @@
+import com.sun.scenario.effect.Merge;
+
 import java.util.*;
 
 public class LinkedListProblems {
@@ -418,14 +420,166 @@ public class LinkedListProblems {
         System.out.println("problem 30: check if linked list length is even or odd");
         populateLL(" numbers ");
         LinkedList<Integer>.Node temp = ll.head;
-        while (temp!=null && temp.next!=null) temp = temp.next.next;
-        if(temp==null) System.out.println("even length");
+        while (temp != null && temp.next != null) temp = temp.next.next;
+        if (temp == null) System.out.println("even length");
         else System.out.println("odd length");
 
     }
 
+    public void problem32() {
+        //Merge two sorted linked list in sorted order
+        System.out.println("problem 33: Merge two sorted linked list in sorted order");
+        populateLL(" numbers in sorted order");
+        LinkedList<Integer> ll2 = new LinkedList<>();
+        System.out.println("enter no of nodes for second LL ");
+        int k = sc.nextInt();
+        System.out.println("enter " + k + "numbers in sorted order");
+        for (int i = 0; i < k; i++) {
+            ll2.insertAtEnd(sc.nextInt());
+        }
+        System.out.println("merged List...");
+        ll.head = mergeTwoList(ll.head, ll2.head);
+        printLL();
+
+    }
+
+    //part of problem 32
+    private LinkedList<Integer>.Node mergeTwoList(LinkedList<Integer>.Node head, LinkedList<Integer>.Node head1) {
+        if (head == null) return head1;
+        if (head1 == null) return head;
+        LinkedList<Integer> newList = new LinkedList<>();
+        newList.insertAtEnd(0);
+        LinkedList<Integer>.Node newNode = newList.head;
+        if (head.item < head1.item) {
+            newNode = head;
+            newNode.next = mergeTwoList(head.next, head1);
+        } else {
+            newNode = head1;
+            newNode.next = mergeTwoList(head1.next, head);
+        }
+        return newNode;
+    }
+
+    public void problem33() {
+        //Merge two sorted linked list in sorted order
+        System.out.println("problem 33: Merge two sorted linked list in sorted order");
+        populateLL(" numbers in sorted order");
+        LinkedList<Integer> ll2 = new LinkedList<>();
+        System.out.println("enter no of nodes for second LL ");
+        int k = sc.nextInt();
+        System.out.println("enter " + k + "numbers in sorted order");
+        for (int i = 0; i < k; i++) {
+            ll2.insertAtEnd(sc.nextInt());
+        }
+        System.out.println("merged List...");
+        LinkedList<Integer>.Node temp = ll.head;
+        LinkedList<Integer>.Node temp2 = ll2.head;
+        LinkedList<Integer> newList = new LinkedList<>();
+        newList.insertAtEnd(0);
+        LinkedList<Integer>.Node newNode = newList.head;
+        while (temp != null && temp2 != null) {
+            if (temp.item < temp2.item) {
+                newNode.next = temp;
+                newNode = newNode.next;
+                temp = temp.next;
+            } else {
+                newNode.next = temp2;
+                newNode = newNode.next;
+                temp2 = temp2.next;
+            }
+        }
+        if (temp != null) newNode.next = temp;
+        if (temp2 != null) newNode.next = temp2;
+
+        ll.head = newList.head.next;
+        printLL();
 
 
+    }
+
+    public void problem38() {
+        //Split circular LL in two equal CLL
+        System.out.println("problem 38: Split circular LL in two equal CLL");
+        System.out.println("enter no of nodes for LL ");
+        int k = sc.nextInt();
+        System.out.println("enter " + k + "numbers ");
+        for (int i = 0; i < k; i++) {
+            ll.insertAtEnd(sc.nextInt());
+        }
+        System.out.println("Creating cycle...");
+        LinkedList<Integer>.Node temp = ll.head;
+        while (temp.next != null) temp = temp.next;
+        temp.next = ll.head;
+
+        LinkedList<Integer>.Node slow = ll.head;
+        LinkedList<Integer>.Node fast = ll.head;
+        while (fast.next != ll.head && fast.next.next != ll.head) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        if (fast.next.next == ll.head) fast = fast.next;
+        LinkedList<Integer>.Node head1 = ll.head, head2 = slow.next;
+
+        fast.next = slow.next;
+        slow.next = head1;
+
+        LinkedList<Integer>.Node temp2 = head2;
+        temp = head1;
+        while (head1 != temp.next) {
+            System.out.print(temp.item + " ");
+            temp = temp.next;
+        }
+        System.out.print(temp.item + " ");
+
+        System.out.println();
+        while (temp2.next != head2) {
+            System.out.print(temp2.item + " ");
+            temp2 = temp2.next;
+        }
+        System.out.print(temp2.item + " ");
+
+
+    }
+
+    public void problem39() {
+        //CHeck linked list is a palindrome
+        System.out.println("problem 33: CHeck linked list is a palindrome");
+        System.out.println("enter no of nodes for second LL ");
+        int k = sc.nextInt();
+        System.out.println("enter " + k + "numbers ");
+        for (int i = 0; i < k; i++) {
+            ll.insertAtEnd(sc.nextInt());
+        }
+
+        LinkedList<Integer>.Node slow = ll.head;
+        LinkedList<Integer>.Node fast = ll.head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        LinkedList<Integer>.Node head2 = slow.next, curr = slow.next, prev = null;
+        slow.next = null;
+        while (curr != null) {
+            LinkedList<Integer>.Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        LinkedList<Integer>.Node temp1 = ll.head, temp2 = prev;
+
+        boolean palindrome = true;
+        while (temp1 != null && temp2 != null) {
+            if (temp1.item != temp2.item) {
+                palindrome = false;
+                break;
+            }
+            temp1 = temp1.next;
+            temp2 = temp2.next;
+        }
+        if (palindrome) System.out.println("palindrome");
+        else System.out.println("not palindrome");
+        
+    }
 
 
     //helper methods for LinkedList problems
