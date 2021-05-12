@@ -1,5 +1,3 @@
-import com.sun.scenario.effect.Merge;
-
 import java.util.*;
 
 public class LinkedListProblems {
@@ -543,7 +541,7 @@ public class LinkedListProblems {
 
     public void problem39() {
         //CHeck linked list is a palindrome
-        System.out.println("problem 33: CHeck linked list is a palindrome");
+        System.out.println("problem 39: CHeck linked list is a palindrome");
         System.out.println("enter no of nodes for second LL ");
         int k = sc.nextInt();
         System.out.println("enter " + k + "numbers ");
@@ -578,7 +576,78 @@ public class LinkedListProblems {
         }
         if (palindrome) System.out.println("palindrome");
         else System.out.println("not palindrome");
-        
+
+    }
+
+    public void problem40() {
+        //exchange adjacent elements in a linked list
+        System.out.println("problem 40: exchange adjacent elements in a linked list");
+        populateLL("numbers");
+        LinkedList<Integer> newList = new LinkedList<>();
+        newList.insertAtEnd(0);
+        newList.head.next = ll.head;
+        LinkedList<Integer>.Node prev = newList.head, curr = ll.head;
+        while (curr != null && curr.next != null) {
+            LinkedList<Integer>.Node next = curr.next.next;
+            curr.next.next = prev.next;
+            prev.next = curr.next;
+            curr.next = next;
+            prev = curr;
+            curr = prev.next;
+        }
+        ll.head = newList.head.next;
+        printLL();
+    }
+
+    public void problem44() {
+        //JosephusCircle
+        System.out.println("problem 44: JosephusCircle");
+        System.out.println("enter no of nodes ");
+        int k = sc.nextInt();
+        System.out.println("enter " + k + "numbers:");
+        for (int i = 0; i < k; i++) {
+            ll.insertAtEnd(sc.nextInt());
+        }
+        System.out.println("Creating cycle...");
+        LinkedList<Integer>.Node temp = ll.head;
+        while (temp.next != null) temp = temp.next;
+        temp.next = ll.head;
+        System.out.println("enter M");
+        int m = sc.nextInt();
+        for (int count = k; count > 1; count--) {
+            for (int i = 0; i < m - 1; i++) {
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+        }
+        System.out.println(temp.item);
+
+
+    }
+
+    public void problem49() {
+        //fractionalNode
+        System.out.println("problem 49: fractionalNode");
+        populateLL("numbers");
+        System.out.println("enter K");
+        int k = sc.nextInt();
+        LinkedList<Integer>.Node fractionalNode = null, temp = ll.head;
+        int i = 0;
+        while (temp.next != null) {
+            if (i % k == 0) {
+                if (fractionalNode == null) {
+                    fractionalNode = ll.head;
+                } else {
+                    fractionalNode = fractionalNode.next;
+                }
+            }
+            i++;
+            temp = temp.next;
+        }
+
+        System.out.println(fractionalNode.item);
+
+
     }
 
 
