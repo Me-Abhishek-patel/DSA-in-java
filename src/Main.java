@@ -7,7 +7,7 @@ public class Main {
         LinkedListProblems linkedListProblems = new LinkedListProblems();
         StackProblems stackProblems = new StackProblems();
 //        llp.problem49();
-        stackProblems.problem8and9and10();
+        stackProblems.problem11();
     }
 }
 
