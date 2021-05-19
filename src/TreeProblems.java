@@ -307,5 +307,68 @@ public class TreeProblems {
 
     }
 
+    //problem 21: find the width of binary tree
+    public int widthOfBT(BinaryTreeNode root) {
+        if (root == null) return 0;
+        Queue<BinaryTreeNode> q = new LinkedList<>();
+        q.add(root);
+        int max = Integer.MIN_VALUE;
+        while (!q.isEmpty()) {
+            int c = q.size();
+            max = Math.max(c, max);
+            for (int i = 0; i < c; i++) {
+                BinaryTreeNode temp = q.poll();
+                if (temp.left != null) q.add(temp.left);
+                if (temp.right != null) q.add(temp.right);
+
+            }
+        }
+        return max;
+    }
+
+    //problem 25: sum of all element in binary tree
+    public int addBT(BinaryTreeNode root) {
+        if (root == null) return 0;
+        return root.data + addBT(root.left) + addBT(root.right);
+    }
+
+    //problem 26: sum of all element in binary tree without recursion
+    public int addBTIterative(BinaryTreeNode root) {
+        if (root == null) return 0;
+        int sum = 0;
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            BinaryTreeNode node = queue.poll();
+            sum += node.data;
+            if (node.left != null) queue.add(node.left);
+            if (node.right != null) queue.add(node.right);
+        }
+        return sum;
+    }
+
+    //problem 27: Convert a binary tree to its mirror using recursion
+    public BinaryTreeNode mirrorBT(BinaryTreeNode root) {
+        if (root != null) {
+            mirrorBT(root.left);
+            mirrorBT(root.right);
+            BinaryTreeNode temp = root.left;
+            root.left = root.right;
+            root.right = temp;
+        }
+        return root;
+    }
+
+    //problem 28: Convert a binary tree to its mirror using recursion
+    public boolean checkMirrorBT(BinaryTreeNode root1, BinaryTreeNode root2) {
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+        if (root1 == null || root2 == null)
+            return false;
+        if (root1.data != root2.data) return false;
+        return checkMirrorBT(root1.left, root2.left) && checkMirrorBT(root1.right, root2.right);
+    }
+
 
 }
