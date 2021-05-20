@@ -370,5 +370,62 @@ public class TreeProblems {
         return checkMirrorBT(root1.left, root2.left) && checkMirrorBT(root1.right, root2.right);
     }
 
+    //problem 29:Construct binary tree from inorder and preorder traversals
+    int preIndex = 0;
+
+    public BinaryTreeNode constructBT(int[] ino, int[] pre) {
+        if (ino.length != pre.length) return null;
+        return constructBTPreOrderInOrder(ino, pre, 0, pre.length - 1);
+    }
+
+    public BinaryTreeNode constructBTPreOrderInOrder(int[] ino, int[] pre, int is, int ie) {
+        if (is > ie) return null;
+        BinaryTreeNode root = new BinaryTreeNode(pre[preIndex++]);
+        int index = -1;
+        for (int i = is; i <= ie; i++) {
+            if (ino[i] == root.data) {
+                index = i;
+                break;
+            }
+        }
+        root.left = constructBTPreOrderInOrder(ino, pre, is, index - 1);
+        root.right = constructBTPreOrderInOrder(ino, pre, index + 1, ie);
+        return root;
+    }
+
+    //problem 30:Construct binary tree from inorder and postorder
+    int postIndex = 0;
+
+    public BinaryTreeNode constructBT2(int[] ino, int[] pre) {
+        if (ino.length != pre.length) return null;
+        postIndex = pre.length - 1;
+        return constructBTPostOrderInOrder(ino, pre, 0, pre.length - 1);
+    }
+
+    public BinaryTreeNode constructBTPostOrderInOrder(int[] ino, int[] pre, int is, int ie) {
+        if (is > ie) return null;
+        BinaryTreeNode root = new BinaryTreeNode(pre[postIndex--]);
+        int index = -1;
+        for (int i = is; i <= ie; i++) {
+            if (ino[i] == root.data) {
+                index = i;
+                break;
+            }
+        }
+        root.left = constructBTPostOrderInOrder(ino, pre, is, index - 1);
+        root.right = constructBTPostOrderInOrder(ino, pre, index + 1, ie);
+        return root;
+    }
+
+    //problem 32: print all ancestors of a node of a binary tree
+    public static boolean printAllAncestors(BinaryTreeNode root, BinaryTreeNode node) {
+        if (root == null) return false;
+        if (root.left == node || root.right == node || printAllAncestors(root.left, node) || printAllAncestors(root.right, node)) {
+            System.out.println(root.data);
+            return true;
+        }
+        return false;
+    }
+
 
 }
