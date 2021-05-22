@@ -1,6 +1,5 @@
+import java.util.*;
 import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
 import java.util.function.BinaryOperator;
 
 public class TreeProblems {
@@ -425,6 +424,83 @@ public class TreeProblems {
             return true;
         }
         return false;
+    }
+
+    //problem 33: find least common ancestor of two nodes in a Binary Tree
+    public BinaryTreeNode lca(BinaryTreeNode root, BinaryTreeNode n1, BinaryTreeNode n2) {
+        if (root == null) return null;
+        if (root == n1 || root == n2) return root;
+        BinaryTreeNode lca1 = lca(root.left, n1, n2);
+        BinaryTreeNode lca2 = lca(root.right, n1, n2);
+        if (lca1 != null && lca2 != null) return root;
+        else return lca1 != null ? lca1 : lca2;
+    }
+
+    //problem 34: zig zag tree traversals
+    public void spiralTraversal(BinaryTreeNode root) {
+        Stack<BinaryTreeNode> s1 = new Stack<>(), s2 = new Stack<>();
+        s1.push(root);
+        while (!s1.isEmpty() || !s2.isEmpty()) {
+            while (!s1.isEmpty()) {
+                BinaryTreeNode temp = s1.pop();
+                System.out.println(temp.data);
+                if (temp.left != null) s2.push(temp.left);
+                if (temp.right != null) s2.push(temp.right);
+            }
+            while (!s2.isEmpty()) {
+                BinaryTreeNode temp = s2.pop();
+                System.out.println(temp.data);
+                if (temp.left != null) s1.push(temp.left);
+                if (temp.right != null) s1.push(temp.right);
+            }
+        }
+    }
+
+    //problem 35: find vertical sum of binary trees
+    public static void verticalSum(BinaryTreeNode root) {
+        HashMap<Integer, Integer> hash = new HashMap<>();
+        vSum(hash, root, 0);
+        System.out.println();
+        for (int k : hash.keySet()) {
+            System.out.println("key(pos): " + k + " sum: " + hash.get(k));
+        }
+    }
+
+    private static void vSum(HashMap<Integer, Integer> hash, BinaryTreeNode root, int i) {
+        if (root.left != null) vSum(hash, root, i - 1);
+        if (root.right != null) vSum(hash, root, i + 1);
+        hash.put(i, root.data + hash.getOrDefault(i, 0));
+
+    }
+
+    //problem 36: Differet trees possible with n noes
+    public int numberOfBT(int n) {
+        int[] count = new int[n + 1];
+        count[0] = 1;
+        count[1] = 1;
+        for (int i = 2; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                count[i] += count[j] * count[i - j - 1];
+            }
+        }
+        return count[n];
+    }
+
+    //problem 37: generate all BT with n nodes
+    public ArrayList<BinaryTreeNode> generateTrees(int n) {
+        if (n == 0) return generateTrees(1, 0);
+        return generateTrees(1, n);
+    }
+
+    private ArrayList<BinaryTreeNode> generateTrees(int start, int end) {
+
+        ArrayList<BinaryTreeNode> subTrees = new ArrayList<>();
+        if (start > end) {
+            subTrees.add(null);
+            return subTrees;
+        }
+        //Incomplete
+        return subTrees;
     }
 
 
