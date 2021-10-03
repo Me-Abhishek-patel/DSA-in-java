@@ -8,7 +8,7 @@ public class ArrayProblems {
         int low = 0, high = arr.length - 1, temp = 0;
         while (low < high) {
             temp = arr[low];
-            arr[low] = arr[high];
+            arr[low] = arr[high]; //swappig the elements
             arr[high] = temp;
             low++;
             high--;
@@ -21,23 +21,22 @@ public class ArrayProblems {
     //sliding window technique
     int maxKSum(int arr[],int k){
         int max=Integer.MIN_VALUE;
-        int win_sum=0;
+        int max_score=0;
         for (int i=0; i<k; i++){
-            win_sum+=arr[i];
+            max_score+=arr[i];
         }
-        max=win_sum;
+        max=max_score;
 
         for (int i=0; i<arr.length-k; i++){
             win_sum=win_sum-arr[i]+arr[i+k];
 
-            if (win_sum>max)
-                max=win_sum;
+            if (max_score>max)
+                max=max_score;
         }
         return max;
     }
 
-    //to find maximum subarray sum
-    //KADANE'S Algorithm
+    //to find maximum subarray sum of array we use KADANE'S algorithm
 
 
 }
