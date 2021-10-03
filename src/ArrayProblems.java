@@ -10,8 +10,8 @@ public class ArrayProblems {
             temp = arr[low];
             arr[low] = arr[high]; //swappig the elements
             arr[high] = temp;
-            low++;
-            high--;
+            low++;      //after swap increment the value of low
+            high--;     //similarly decrement the value of high 
 
         }
     }
