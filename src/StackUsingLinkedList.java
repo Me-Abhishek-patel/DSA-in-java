@@ -11,8 +11,8 @@ public class StackUsingLinkedList<Item> implements Iterable<Item> {
         Node next;
     }
 
-    // boolean function to check the sixe of stack
-    public boolean isEmpty() {
+    // boolean function to check the size of stack
+    public boolean isEmpty() {//check if empty
         return N == 0;
     }
 
@@ -35,7 +35,7 @@ public class StackUsingLinkedList<Item> implements Iterable<Item> {
         return item;
     }
 
-    @Override
+    @Override//using decorators
     public Iterator<Item> iterator() {
         return new stackIterator();
     }
