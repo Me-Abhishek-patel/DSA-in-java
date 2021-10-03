@@ -6,19 +6,19 @@ public class BinaryTreeNode {
         this.data = data;
     }
 
-    public int getData() {
+    public int getData() {//getter function
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(int data) {//setter function
         this.data = data;
     }
 
-    public BinaryTreeNode getLeft() {
+    public BinaryTreeNode getLeft() {//getting left
         return left;
     }
 
-    public void setLeft(BinaryTreeNode left) {
+    public void setLeft(BinaryTreeNode left) {//setting left
         this.left = left;
     }
 
