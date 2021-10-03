@@ -52,12 +52,12 @@ public class RabinKarp{
 	}
 	public static void main(String[] args) {
 		String txt = "Happy coding! && Enjoy coding!"; 
-        String pat = "od"; 
+        	String pat = "od"; 
             
-          // A prime number 
-        int q = 101;  
+        	// A prime number 
+        	int q = 101;  
         
-        System.out.println("Starting indices in txt where pattern(pat) found:");
-        search(pat, txt, q);
+        	System.out.println("Starting indices in txt where pattern(pat) found:");
+        	search(pat, txt, q);
 	}
 }
