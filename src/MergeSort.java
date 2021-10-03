@@ -5,19 +5,19 @@ public class MergeSort
     {
         if(r>l)
         {
-            int mid = l+(r-l)/2;
-            mergeSort(arr,l,mid);
+            int mid = l+(r-l)/2; //finding the middle element
+            mergeSort(arr,l,mid); 
             mergeSort(arr,mid+1,r);
-            merge(arr,l,mid,r);
+            merge(arr,l,mid,r); //merging the element in array
         }
     }
 
     static void merge(int arr[],int l,int m,int r)
     {
-        int l1 = m+1-l;
-        int l2 = r-m;
-        int[] arr1 = new int[l1];
-        int[] arr2 = new int[l2];
+        int l1 = m+1-l; //dividing the array size
+        int l2 = r-m;  //dividing the array size
+        int[] arr1 = new int[l1]; //creating the new array (arr1)
+        int[] arr2 = new int[l2]; //creating the new array (arr2)
         int i = 0,j = 0;
         for(int f=0;f<l1;f++)
         {
@@ -57,9 +57,9 @@ public class MergeSort
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {  //main function
         int arr[] = {10,9,8,7,6,5,4,3,2,1};
-        mergeSort(arr,0,arr.length-1);
+        mergeSort(arr,0,arr.length-1);  //calling of function
         for(int num: arr)
             System.out.print(num + " "); 
     }
