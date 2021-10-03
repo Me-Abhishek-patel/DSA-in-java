@@ -10,7 +10,7 @@ class MyCircularDeque {
         queue = new int[k];
         size = 0;
         cap = k;
-        front = -1;
+        front = -1;   //front should be set as -1 bcoz the value is not assign yet.
         last = 0;
     }
 
