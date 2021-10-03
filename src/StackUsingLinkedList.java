@@ -1,14 +1,17 @@
+//import package 
 import java.util.Iterator;
 
 public class StackUsingLinkedList<Item> implements Iterable<Item> {
     private Node head;
     private int N;
-
+    
+// A linked list node
     public class Node {
         Item item;
         Node next;
     }
 
+    // boolean function to check the sixe of stack
     public boolean isEmpty() {
         return N == 0;
     }
