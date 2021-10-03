@@ -1,24 +1,25 @@
 import java.util.Collection;
 import java.util.Collections;
+//program demonstrating KADANE'S algorithm
 
 public class ArrayProblems {
 
     //to reverse the array
     void arrayReverse(int arr[]) {
-        int low = 0, high = arr.length - 1, temp = 0;
-        while (low < high) {
-            temp = arr[low];
-            arr[low] = arr[high]; //swappig the elements
-            arr[high] = temp;
-            low++;
-            high--;
+        int lower = 0, higher = arr.length - 1, temp = 0;
+        while (lower < higher) {
+            temp = arr[lower];
+            arr[lower] = arr[higher]; //swapping the elements
+            arr[higher] = temp;
+            lower++;
+            higher--;
 
         }
     }
 
 
     //to find maximum k consecutive elements
-    //sliding window technique
+    //using the sliding window technique
     int maxKSum(int arr[],int k){
         int max=Integer.MIN_VALUE;
         int max_score=0;
