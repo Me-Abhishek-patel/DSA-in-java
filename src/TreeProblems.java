@@ -15,12 +15,12 @@ public class TreeProblems {
 
     //problem 2: find max element in a binary tree without recursion
     public int maxInBinaryTreeLevelOrder(BinaryTreeNode root) {
-        if (root == null) {
+        if (root == null) {//comparing if the value of root isequal to null
             return Integer.MIN_VALUE;
         }
         int max = Integer.MIN_VALUE;
         Queue<BinaryTreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        queue.add(root);//adding the element in queue
         while (!queue.isEmpty()) {
             BinaryTreeNode node = queue.poll();
 
@@ -29,7 +29,7 @@ public class TreeProblems {
             if (node.left != null) queue.add(node.left);
             if (node.right != null) queue.add(node.right);
         }
-        return max;
+        return max;//returning the value of max
 
 
     }
@@ -77,7 +77,7 @@ public class TreeProblems {
                 return root;
             }
         }
-        return root;
+        return root;//returning the value of root
 
     }
 
@@ -150,7 +150,7 @@ public class TreeProblems {
         if (root == null) return 0;
         Stack<BinaryTreeNode> s = new Stack<>();
         s.push(root);
-        int depth = 0;
+        int depth = 0;//initializing the value of depth
         BinaryTreeNode prev = null;
         while (!s.isEmpty()) {
             BinaryTreeNode curr = s.peek();
