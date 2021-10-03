@@ -1,7 +1,7 @@
 // Java program to perform Merge Sort algorithm on a array
 public class MergeSort
 {
-    static void mergeSort(int arr[],int l,int r)
+    static void mergeSort(int arr[],int l,int r)//function for mergesort
     {
         if(r>l)
         {
@@ -28,7 +28,7 @@ public class MergeSort
             arr2[f] = arr[m+1+f];
         }
         int k = l;
-        while(i<l1 && j<l2)
+        while(i<l1 && j<l2)//looping till the condition becomes false
         {
             if(arr1[i]<arr2[j])
             {
@@ -58,9 +58,9 @@ public class MergeSort
     }
 
     public static void main(String[] args) {  //main function
-        int arr[] = {10,9,8,7,6,5,4,3,2,1};
+        int arr[] = {10,9,8,7,6,5,4,3,2,1};//input array
         mergeSort(arr,0,arr.length-1);  //calling of function
-        for(int num: arr)
+        for(int num: arr)//printing array after sort
             System.out.print(num + " "); 
     }
 }
