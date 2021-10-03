@@ -33,8 +33,8 @@ public class MergeSort
             if(arr1[i]<arr2[j])
             {
                 arr[k] = arr1[i];
-                k++;
-                i++;
+                k++;        //increasing the value as next value will be filled there
+                i++;        //increasing the value as to compare with next value
             }
             else
             {
