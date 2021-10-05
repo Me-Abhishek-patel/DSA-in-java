@@ -19,9 +19,11 @@ class Solution {
     public int rangeSumBST(TreeNode root, int loow, int high) {
        if(root==null)
            return res;
-        if(root.val>low&&root.val>high)
+
+        if(root.val>loow&&root.val>high)
             rangeSumBST(root.left,loow,high);
-        else if(root.val<low&&root.val<high)
+        else if(root.val<loow&&root.val<high)
+
             rangeSumBST(root.right,loow,high);
         else 
         {   rangeSumBST(root.left,loow,high);
