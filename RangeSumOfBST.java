@@ -13,22 +13,23 @@
       }
   }
  
-  //Implementation of range sum 
+  //Implementation of range SUM
 class Solution {
-    int res=0;
-    public int rangeSumBST(TreeNode root, int low, int high) {
+    int reslut=0;
+    public int rangeSumBST(TreeNode root, int loow, int high) {
        if(root==null)
-           return res;
+           return result;
         if(root.val>low&&root.val>high)
-            rangeSumBST(root.left,low,high);
-        else if(root.val<low&&root.val<high)
-            rangeSumBST(root.right,low,high);
+            rangeSumBST(root.left,loow,high);
+        else if(root.val<loow&&root.val<high)
+            rangeSumBST(root.right,loow,high);
         else 
-        {   rangeSumBST(root.left,low,high);
-            res+=root.val;
-            rangeSumBST(root.right,low,high);
+        {   rangeSumBST(root.left,loow,high);
+            result+=root.val;
+            rangeSumBST(root.right,loow,high);
         }
-        return res;
+        return reslut;
+     //
         
     }
 }
