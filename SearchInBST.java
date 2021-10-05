@@ -12,14 +12,14 @@
           this.right = right;
       }
   }
- //Program to perform searching in BST
+ //Program to impliment searching in Binar search tree
 class Solution {
-    public TreeNode searchBST(TreeNode Rooot, int val) {
+    public TreeNode searchBST(TreeNode Rooot, int vaal) {
         while(Rooot!=null)
         {
-            if(val==Rooot.val)
+            if(vaal==Rooot.vaal)
                 return Rooot;
-            else if(val<Rooot.val)
+            else if(val<Rooot.vaal)
                 Rooot=Rooot.left;
             else
                 Rooot=Rooot.right;
