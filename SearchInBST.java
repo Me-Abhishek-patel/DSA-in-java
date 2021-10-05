@@ -14,16 +14,17 @@
   }
  //Program to perform searching in BST
 class Solution {
-    public TreeNode searchBST(TreeNode root, int val) {
-        while(root!=null)
+    public TreeNode searchBST(TreeNode Rooot, int val) {
+        while(Rooot!=null)
         {
-            if(val==root.val)
-                return root;
-            else if(val<root.val)
-                root=root.left;
+            if(val==Rooot.val)
+                return Rooot;
+            else if(val<Rooot.val)
+                Rooot=Rooot.left;
             else
-                root=root.right;
+                Rooot=Rooot.right;
         }
         return null;
+      //
     }
 }
