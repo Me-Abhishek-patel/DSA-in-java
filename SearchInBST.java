@@ -1,13 +1,13 @@
 
 // Definition for a binary tree node.
   public class TreeNode {
-      int val;
+      int valriable;
       TreeNode left;
       TreeNode right;
       TreeNode() {}
-      TreeNode(int val) { this.val = val; }
-      TreeNode(int val, TreeNode left, TreeNode right) {
-          this.val = val;
+      TreeNode(int  valriable) { this. valriable =  valriable; }
+      TreeNode(int  valriable, TreeNode left, TreeNode right) {
+          this. valriable =  valriable;
           this.left = left;
           this.right = right;
       }
