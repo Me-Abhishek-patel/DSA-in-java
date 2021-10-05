@@ -1,4 +1,5 @@
 
+
  //Definition for a binary tree node.
   public class TreeNode {
       int val;
@@ -13,23 +14,24 @@
       }
   }
  
-  //Implementation of range SUM
+  //Implementation of     Range SUM
 class Solution {
-    int reslut=0;
+    int res=0;
     public int rangeSumBST(TreeNode root, int loow, int high) {
        if(root==null)
-           return result;
-        if(root.val>low&&root.val>high)
+           return res;
+
+        if(root.val>loow&&root.val>high)
             rangeSumBST(root.left,loow,high);
         else if(root.val<loow&&root.val<high)
+
             rangeSumBST(root.right,loow,high);
         else 
         {   rangeSumBST(root.left,loow,high);
-            result+=root.val;
+            res+=root.val;
             rangeSumBST(root.right,loow,high);
         }
-        return reslut;
-     //
+        return res;
         
     }
 }
