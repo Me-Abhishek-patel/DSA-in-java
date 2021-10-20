@@ -15,6 +15,6 @@ public class CalculateCBSEmarks {
         System.out.println("Enter the marks of Chemistry:-\t");
         float chem = s.nextFloat();
         float per = (float)((hindi + english + maths + physics + chem)*100)/500;
-        System.out.println("The percentage of the student is :- "+per+"%");
+        System.out.println("The percentage of the student is :- "+per+"%"); //finally printing results that is average percentage
     }
 }
