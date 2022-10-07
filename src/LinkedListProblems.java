@@ -2,7 +2,7 @@ import java.util.*;
 
 public class LinkedListProblems {
     Scanner sc = new Scanner(System.in);
-    LinkedList<Integer> ll = new LinkedList<>();
+    LinkedList<Integer> ll = new LinkedList<>(); 
 
 
     public void problem1() {
@@ -14,7 +14,7 @@ public class LinkedListProblems {
         //find nth node from end of the linked list
         System.out.println("problem 2: find nth node from end of the linked list");
         populateLL(" numbers ");
-        System.out.println("enter n");
+        System.out.println("enter n");//Enter the value of n
         int n = sc.nextInt();
         LinkedList<Integer>.Node temp = ll.head;
         while (temp != null) {
@@ -22,7 +22,7 @@ public class LinkedListProblems {
             int count = -1;
             while (tempx != null) {
                 tempx = tempx.next;
-                count++;
+                count++;//Incrementing the value of count by 1
             }
             if (count == n - 1) {
                 System.out.println(temp.item);
@@ -81,7 +81,7 @@ public class LinkedListProblems {
 
         for (int i = 0; temp != null; i++) {
             temp = temp.next;
-            if (i > n) {
+            if (i > n) { //if the value of i is  greater than n
                 node = node.next;
             }
         }
@@ -145,7 +145,7 @@ public class LinkedListProblems {
         while (temp != null) {
             if (set.contains(temp)) {
                 System.out.println("cycle exist");
-                cycle = true;
+                cycle = true;//if the value of cycle is true
                 break;
             } else {
                 set.add(temp);
@@ -181,7 +181,7 @@ public class LinkedListProblems {
             if (slowPtr == fastPtr) {
                 System.out.println("cycle exist");
                 cycle = true;
-                break;
+                break;//this will break the iteration
             }
         }
         if (!cycle) System.out.println("NO cycle found");

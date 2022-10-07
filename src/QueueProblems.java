@@ -1,21 +1,22 @@
+// import module
 import java.util.*;
 import java.util.LinkedList;
 
 public class QueueProblems {
     Scanner sc = new Scanner(System.in);
-    Deque<Integer> queue = new LinkedList<>();
+    Deque<Integer> queue = new LinkedList<>(); //creating linked list
 
 
     public void problem1() {
         //reversing a Queue
         System.out.println("problem 1:reversing a Queue");
         System.out.println("Enter n: ");
-        int n = sc.nextInt();
+        int n = sc.nextInt(); // taking input n
         System.out.println("Enter " + n + " elements: ");
         for (int i = 0; i < n; i++) {
-            queue.addLast(sc.nextInt());
+            queue.addLast(sc.nextInt()); //taking elements input
         }
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>(); //creating stack 
         while (!queue.isEmpty()) stack.push(queue.pollFirst());
         while (!stack.isEmpty()) queue.addLast(stack.pop());
         for (int i : queue) {
@@ -64,10 +65,10 @@ public class QueueProblems {
         while (!stack.isEmpty())
             queue.addLast(stack.pop());
         while (!queue.isEmpty())
-            stack.push(queue.pollFirst());
+            stack.push(queue.pollFirst()); //inserting the element
         boolean isConsecutive = true;
         while (!stack.isEmpty()) {
-            int n = stack.pop();
+            int n = stack.pop(); //removing the element
             queue.addLast(n);
             if (!stack.isEmpty()) {
                 int m = stack.pop();
