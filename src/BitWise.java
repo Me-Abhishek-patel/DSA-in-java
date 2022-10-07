@@ -15,4 +15,9 @@ public class BitWise {
 
         return res;
     }
+
+    //to check a number is power of 2
+    boolean isPow2(int n) {
+        return (n != 0 && ((n & (n - 1)) == 0));
+    }
 }
