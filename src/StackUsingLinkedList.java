@@ -1,15 +1,18 @@
+//import package 
 import java.util.Iterator;
 
 public class StackUsingLinkedList<Item> implements Iterable<Item> {
     private Node head;
     private int N;
-
+    
+// A linked list node
     public class Node {
         Item item;
         Node next;
     }
 
-    public boolean isEmpty() {
+    // boolean function to check the size of stack
+    public boolean isEmpty() {//check if empty
         return N == 0;
     }
 
@@ -32,7 +35,7 @@ public class StackUsingLinkedList<Item> implements Iterable<Item> {
         return item;
     }
 
-    @Override
+    @Override//using decorators
     public Iterator<Item> iterator() {
         return new stackIterator();
     }

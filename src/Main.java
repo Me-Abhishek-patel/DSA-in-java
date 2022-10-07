@@ -1,5 +1,6 @@
 import java.util.Queue;
 import java.util.Scanner;
+//program for linked lidt and queues
 
 public class Main {
     public static void main(String[] args) {

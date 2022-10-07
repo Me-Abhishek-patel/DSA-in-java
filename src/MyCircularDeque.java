@@ -1,5 +1,5 @@
 class MyCircularDeque {
-    int[] queue;
+    int[] queue;//creating a queue
     int size, cap, front, last;
 
 
@@ -8,9 +8,9 @@ class MyCircularDeque {
      */
     public MyCircularDeque(int k) {
         queue = new int[k];
-        size = 0;
+        size = 0;//initalize the value of size 
         cap = k;
-        front = -1;
+        front = -1;   //front should be set as -1 bcoz the value is not assign yet.
         last = 0;
     }
 
@@ -56,21 +56,21 @@ class MyCircularDeque {
      * Get the last item from the deque.
      */
     public int getRear() {
-        return isEmpty() ? -1 : queue[last];
+        return isEmpty() ? -1 : queue[last];//checking the last element of queue
     }
 
     /**
      * Checks whether the circular deque is empty or not.
      */
     public boolean isEmpty() {
-        return size == 0;
+        return size == 0;//return zero if queue is empty
     }
 
     /**
      * Checks whether the circular deque is full or not.
      */
     public boolean isFull() {
-        return size == queue.length;
+        return size == queue.length;//return the size of queue length
     }
 }
 
