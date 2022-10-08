@@ -20,11 +20,11 @@ public class ArrayProblems {
     //to find maximum k consecutive elements
     //sliding window technique
 
-    int maxKSum(int arr[],int k){
-        int max=Integer.MIN_VALUE;
-        int max_score=0;//set a variable max_score to 0
-        for (int i=0; i<k; i++){
-            max_score+=arr[i];
+    int maxKSum(int arr[], int k) {
+        int max = Integer.MIN_VALUE;
+        int max_score = 0;//set a variable max_score to 0
+        for (int i = 0; i < k; i++) {
+            max_score += arr[i];
         }
 
 
@@ -32,8 +32,8 @@ public class ArrayProblems {
             win_sum = win_sum - arr[i] + arr[i + k];
 
 
-            if (max_score>max)//comparing max with max_score
-                max=max_score;
+            if (max_score > max)//comparing max with max_score
+                max = max_score;
         }
         return max;
     }
@@ -60,6 +60,11 @@ public class ArrayProblems {
         return ps;
     }
 
+    // fnxn to print an array
+    void printArray(int a[]) {
+        for (int i : a)
+            System.out.print(i + " ");
+    }
 
 }
 
